@@ -182,6 +182,13 @@ void console_moveCursorPosition(int x, int y);
  * @return void
  */
 void console_setCursorPosition(int x, int y);
+
+#define CONSOLE_KEY_OTHER 0
+#define CONSOLE_KEY_UP 1
+#define CONSOLE_KEY_DOWN 2
+#define CONSOLE_KEY_LEFT 3
+#define CONSOLE_KEY_RIGHT 4
+#define CONSOLE_KEY_RETURN 5
 /**
  * @brief  Returns a hint of the arrow key pressed
  * @return hint of the key
@@ -192,13 +199,6 @@ int console_getArrowPressed();
  * @return void
  */
 void console_clearScreen();
-
-#define CONSOLE_KEY_OTHER 0
-#define CONSOLE_KEY_UP 1
-#define CONSOLE_KEY_DOWN 2
-#define CONSOLE_KEY_LEFT 3
-#define CONSOLE_KEY_RIGHT 4
-#define CONSOLE_KEY_RETURN 5
 
 char getch();
 
