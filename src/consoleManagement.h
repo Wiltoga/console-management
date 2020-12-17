@@ -1,6 +1,7 @@
 #ifndef DEF_CONSOLE_COLORS_H
 #define DEF_CONSOLE_COLORS_H
 #include <stdint.h>
+#include <stdarg.h>
 //https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 #define CONSOLE_COLOR_BLACK 30
 #define CONSOLE_COLOR_RED 31
@@ -58,29 +59,14 @@ color console_color(uint8_t red, uint8_t green, uint8_t blue);
  * @param  flags flags to apply
  * @return void
  */
-void console_formatMode(char *content, uint8_t flags);
+void console_formatMode(char *content, uint8_t flags, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
  * @param background background color of the text
  * @return void
  */
-void console_formatRGBBackground(char *content, color background);
-/**
- * @brief  Writes formatted text in the console
- * @param  content string to write in the console 
- * @param background background color of the text
- * @param  flags flags to apply
- * @return void
- */
-void console_formatRGBBackgroundMode(char *content, color background, uint8_t flags);
-/**
- * @brief  Writes formatted text in the console
- * @param  content string to write in the console 
- * @param background background color of the text
- * @return void
- */
-void console_formatSystemBackground(char *content, int background);
+void console_formatRGBBackground(char *content, color background, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
@@ -88,14 +74,29 @@ void console_formatSystemBackground(char *content, int background);
  * @param  flags flags to apply
  * @return void
  */
-void console_formatSystemBackgroundMode(char *content, int background, uint8_t flags);
+void console_formatRGBBackgroundMode(char *content, color background, uint8_t flags, ...);
+/**
+ * @brief  Writes formatted text in the console
+ * @param  content string to write in the console 
+ * @param background background color of the text
+ * @return void
+ */
+void console_formatSystemBackground(char *content, int background, ...);
+/**
+ * @brief  Writes formatted text in the console
+ * @param  content string to write in the console 
+ * @param background background color of the text
+ * @param  flags flags to apply
+ * @return void
+ */
+void console_formatSystemBackgroundMode(char *content, int background, uint8_t flags, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
  * @param foreground foreground color of the text
  * @return void
  */
-void console_formatRGBForeground(char *content, color foreground);
+void console_formatRGBForeground(char *content, color foreground, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
@@ -103,14 +104,14 @@ void console_formatRGBForeground(char *content, color foreground);
  * @param  flags flags to apply
  * @return void
  */
-void console_formatRGBForegroundMode(char *content, color foreground, uint8_t flags);
+void console_formatRGBForegroundMode(char *content, color foreground, uint8_t flags, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
  * @param foreground foreground color of the text
  * @return void
  */
-void console_formatSystemForeground(char *content, int foreground);
+void console_formatSystemForeground(char *content, int foreground, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
@@ -118,7 +119,7 @@ void console_formatSystemForeground(char *content, int foreground);
  * @param  flags flags to apply
  * @return void
  */
-void console_formatSystemForegroundMode(char *, int foreground, uint8_t flags);
+void console_formatSystemForegroundMode(char *, int foreground, uint8_t flags, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
@@ -126,24 +127,7 @@ void console_formatSystemForegroundMode(char *, int foreground, uint8_t flags);
  * @param background background color of the text
  * @return void
  */
-void console_formatRGBColor(char *content, color foreground, color background);
-/**
- * @brief  Writes formatted text in the console
- * @param  content string to write in the console 
- * @param foreground foreground color of the text
- * @param background background color of the text
- * @param  flags flags to apply
- * @return void
- */
-void console_formatRGBColorMode(char *content, color foreground, color background, uint8_t flags);
-/**
- * @brief  Writes formatted text in the console
- * @param  content string to write in the console 
- * @param foreground foreground color of the text
- * @param background background color of the text
- * @return void
- */
-void console_formatSystemColor(char *content, int foreground, int background);
+void console_formatRGBColor(char *content, color foreground, color background, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
@@ -152,7 +136,24 @@ void console_formatSystemColor(char *content, int foreground, int background);
  * @param  flags flags to apply
  * @return void
  */
-void console_formatSystemColorMode(char *content, int foreground, int background, uint8_t flags);
+void console_formatRGBColorMode(char *content, color foreground, color background, uint8_t flags, ...);
+/**
+ * @brief  Writes formatted text in the console
+ * @param  content string to write in the console 
+ * @param foreground foreground color of the text
+ * @param background background color of the text
+ * @return void
+ */
+void console_formatSystemColor(char *content, int foreground, int background, ...);
+/**
+ * @brief  Writes formatted text in the console
+ * @param  content string to write in the console 
+ * @param foreground foreground color of the text
+ * @param background background color of the text
+ * @param  flags flags to apply
+ * @return void
+ */
+void console_formatSystemColorMode(char *content, int foreground, int background, uint8_t flags, ...);
 /**
  * @brief  Saves the position of the cursor, to be restored later
  * @return void
@@ -168,13 +169,6 @@ void console_restoreCursorPosition();
  * @return void
  */
 void console_eraseEndOfLine();
-/**
- * @brief  Moves the cursor by a specified offset
- * @param x horizontal offset
- * @param y vertical offset
- * @return void
- */
-void console_moveCursorPosition(int x, int y);
 /**
  * @brief  Moves the cursor to the specified position
  * @param x horizontal position
@@ -195,7 +189,7 @@ void console_setCursorPosition(int x, int y);
  */
 int console_getArrowPressed();
 /**
- * @brief  Clears the current screen and set the cursor at the default position
+ * @brief  Clears the current screen and set the cursor at the default position (1,1)
  * @return void
  */
 void console_clearScreen();
