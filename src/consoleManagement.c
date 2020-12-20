@@ -4,6 +4,7 @@
 #include <termios.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdarg.h>
 //https://www.includehelp.com/c-programs/gotoxy-clrscr-getch-getche-for-gcc-linux.aspx
 static struct termios old, new;
 
@@ -49,14 +50,6 @@ getche() function definition.
 char getche(void)
 {
     return getch_(1);
-}
-color console_color(uint8_t r, uint8_t g, uint8_t b)
-{
-    color c;
-    c.r = r;
-    c.g = g;
-    c.b = b;
-    return c;
 }
 void console_formatMode(char *content, uint8_t flags, ...)
 {
@@ -133,7 +126,7 @@ void console_formatSystemBackground(char *content, int background, ...)
 {
     va_list args;
     va_start(args, background);
-    printf("\x1b[%dm", background);
+    printf("\x1b[%dm", background + 10);
     vprintf(content, args);
     printf("\x1b[0m");
     va_end(args);
