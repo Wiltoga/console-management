@@ -35,7 +35,7 @@ The following code should output the next gif (sorry for the bad quality) :
         return 0;
     }
 ```
-![](display.gif)
+![](https://raw.githubusercontent.com/WildGoat07/console-management/f0f3854f95a5424c61d47efff6df50ac3e7bb38c/display.gif)
 - Can move/save/restore the cursor position in the console
 - Clean the console or only the remaining characters in a line
 - Can format only a string instead of the console
