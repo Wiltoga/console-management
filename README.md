@@ -38,7 +38,9 @@ The following code should output the next gif (sorry for the bad quality) :
 ![](display.gif)
 - Can move/save/restore the cursor position in the console
 - Clean the console or only the remaining characters in a line
+- Can format only a string instead of the console
+- Can draw tables (need presentation)
 
 ## Installation
 
-Just copy the [consoleManagement.h](src/consoleManagement.h) and [consoleManagement.c](src/consoleManagement.c) files into your source files, and compile `consoleManagement.c`.
+Just copy the files into your source files, and compile them.
