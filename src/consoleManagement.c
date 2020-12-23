@@ -95,7 +95,7 @@ void console_formatMode(char *content, uint8_t flags, ...)
     printf("\x1b[0m");
     va_end(args);
 }
-void console_formatBackground(char *content, color background, ...)
+void console_formatBackground(char *content, color_t background, ...)
 {
     va_list args;
     va_start(args, background);
@@ -107,7 +107,7 @@ void console_formatBackground(char *content, color background, ...)
     printf("\x1b[0m");
     va_end(args);
 }
-void console_formatBackgroundMode(char *content, color background, uint8_t flags, ...)
+void console_formatBackgroundMode(char *content, color_t background, uint8_t flags, ...)
 {
     va_list args;
     va_start(args, flags);
@@ -130,7 +130,7 @@ void console_formatBackgroundMode(char *content, color background, uint8_t flags
     printf("\x1b[0m");
     va_end(args);
 }
-void console_formatForeground(char *content, color foreground, ...)
+void console_formatForeground(char *content, color_t foreground, ...)
 {
     va_list args;
     va_start(args, foreground);
@@ -142,7 +142,7 @@ void console_formatForeground(char *content, color foreground, ...)
     printf("\x1b[0m");
     va_end(args);
 }
-void console_formatForegroundMode(char *content, color foreground, uint8_t flags, ...)
+void console_formatForegroundMode(char *content, color_t foreground, uint8_t flags, ...)
 {
     va_list args;
     va_start(args, flags);
@@ -164,7 +164,7 @@ void console_formatForegroundMode(char *content, color foreground, uint8_t flags
     printf("\x1b[0m");
     va_end(args);
 }
-void console_formatColor(char *content, color foreground, color background, ...)
+void console_formatColor(char *content, color_t foreground, color_t background, ...)
 {
     va_list args;
     va_start(args, background);
@@ -180,7 +180,7 @@ void console_formatColor(char *content, color foreground, color background, ...)
     printf("\x1b[0m");
     va_end(args);
 }
-void console_formatColorMode(char *content, color foreground, color background, uint8_t flags, ...)
+void console_formatColorMode(char *content, color_t foreground, color_t background, uint8_t flags, ...)
 {
     va_list args;
     va_start(args, flags);

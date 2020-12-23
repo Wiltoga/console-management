@@ -62,7 +62,7 @@ void *mode(void *buffer, uint8_t flags)
     }
     return buffer;
 }
-void *sysColor(void *buffer, color c)
+void *sysColor(void *buffer, color_t c)
 {
     char b[5];
     snprintf(b, 5 * sizeof(char), "%d", c);
@@ -70,7 +70,7 @@ void *sysColor(void *buffer, color c)
     memcpy(buffer, b, len * sizeof(char));
     return buffer + sizeof(char) * len;
 }
-void *rgbForeground(void *buffer, color c)
+void *rgbForeground(void *buffer, color_t c)
 {
     memcpy(buffer, "38;2;", sizeof(char) * 5);
     buffer += sizeof(char) * 5;
@@ -80,7 +80,7 @@ void *rgbForeground(void *buffer, color c)
     memcpy(buffer, b, len * sizeof(char));
     return buffer + sizeof(char) * len;
 }
-void *rgbBackground(void *buffer, color c)
+void *rgbBackground(void *buffer, color_t c)
 {
     memcpy(buffer, "48;2;", sizeof(char) * 5);
     buffer += sizeof(char) * 5;
@@ -100,7 +100,7 @@ size_t string_formatMode(void *buffer, uint8_t flags)
     return (size_t)buffer - init;
 }
 
-size_t string_formatBackground(void *buffer, color background)
+size_t string_formatBackground(void *buffer, color_t background)
 {
     size_t init = (size_t)buffer;
     buffer = begin(buffer);
@@ -112,7 +112,7 @@ size_t string_formatBackground(void *buffer, color background)
     return (size_t)buffer - init;
 }
 
-size_t string_formatBackgroundMode(void *buffer, color background, uint8_t flags)
+size_t string_formatBackgroundMode(void *buffer, color_t background, uint8_t flags)
 {
     size_t init = (size_t)buffer;
     buffer = begin(buffer);
@@ -126,7 +126,7 @@ size_t string_formatBackgroundMode(void *buffer, color background, uint8_t flags
     return (size_t)buffer - init;
 }
 
-size_t string_formatForeground(void *buffer, color foreground)
+size_t string_formatForeground(void *buffer, color_t foreground)
 {
     size_t init = (size_t)buffer;
     buffer = begin(buffer);
@@ -138,7 +138,7 @@ size_t string_formatForeground(void *buffer, color foreground)
     return (size_t)buffer - init;
 }
 
-size_t string_formatForegroundMode(void *buffer, color foreground, uint8_t flags)
+size_t string_formatForegroundMode(void *buffer, color_t foreground, uint8_t flags)
 {
     size_t init = (size_t)buffer;
     buffer = begin(buffer);
@@ -152,7 +152,7 @@ size_t string_formatForegroundMode(void *buffer, color foreground, uint8_t flags
     return (size_t)buffer - init;
 }
 
-size_t string_formatColor(void *buffer, color foreground, color background)
+size_t string_formatColor(void *buffer, color_t foreground, color_t background)
 {
     size_t init = (size_t)buffer;
     buffer = begin(buffer);
@@ -169,7 +169,7 @@ size_t string_formatColor(void *buffer, color foreground, color background)
     return (size_t)buffer - init;
 }
 
-size_t string_formatColorMode(void *buffer, color foreground, color background, uint8_t flags)
+size_t string_formatColorMode(void *buffer, color_t foreground, color_t background, uint8_t flags)
 {
     size_t init = (size_t)buffer;
     buffer = begin(buffer);

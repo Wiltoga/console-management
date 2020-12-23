@@ -27,7 +27,7 @@
 #define CONSOLE_FLAG_BLINK 0b1 << 2
 #define CONSOLE_FLAG_REVERSE_COLOR 0b1 << 3
 
-typedef uint32_t color;
+typedef uint32_t color_t;
 /**
  * @brief  Creates a color from the given rgb channels
  * @param red red channel value
@@ -35,46 +35,46 @@ typedef uint32_t color;
  * @param blue blue channel value
  * @return color int data 
  */
-color color_create(uint8_t red, uint8_t green, uint8_t blue);
+color_t color_create(uint8_t red, uint8_t green, uint8_t blue);
 /**
  * @brief  Changes the red channel of the color. The color variable has to be a custom color.
  * @param  c color to change
  * @param  red new red value
  */
-void color_setRed(color *c, uint8_t red);
+void color_setRed(color_t *c, uint8_t red);
 /**
  * @brief  Changes the green channel of the color. The color variable has to be a custom color.
  * @param  c color to change
  * @param  green new green value
  */
-void color_setGreen(color *c, uint8_t green);
+void color_setGreen(color_t *c, uint8_t green);
 /**
  * @brief  Changes the blue channel of the color. The color variable has to be a custom color.
  * @param  c color to change
  * @param  blue new blue value
  */
-void color_setBlue(color *c, uint8_t blue);
+void color_setBlue(color_t *c, uint8_t blue);
 /**
  * @brief  Returns the red channel of the color. The color varaible has to be a custom color.
  * @param  c color from which to extract the red channel
  * @return value of the red channel
  */
-uint8_t color_getRed(color c);
+uint8_t color_getRed(color_t c);
 /**
  * @brief  Returns the green channel of the color. The color varaible has to be a custom color.
  * @param  c color from which to extract the green channel
  * @return value of the green channel
  */
-uint8_t color_getGreen(color c);
+uint8_t color_getGreen(color_t c);
 /**
  * @brief  Returns the blue channel of the color. The color varaible has to be a custom color.
  * @param  c color from which to extract the blue channel
  * @return value of the blue channel
  */
-uint8_t color_getBlue(color c);
+uint8_t color_getBlue(color_t c);
 /**
  * @brief  Returns true if the color is a custom color, or false if it is a system color.
  * @param  c color to test
  */
-bool isColorCustom(color c);
+bool isColorCustom(color_t c);
 #endif

@@ -16,7 +16,7 @@ size_t string_formatMode(void *buffer, uint8_t flags);
  * @param background background color of the text
  * @return size of the added characters to the buffer
  */
-size_t string_formatBackground(void *buffer, color background);
+size_t string_formatBackground(void *buffer, color_t background);
 /**
  * @brief  Writes ANSI format characters
  * @param  buffer buffer to write into 
@@ -24,14 +24,14 @@ size_t string_formatBackground(void *buffer, color background);
  * @param  flags flags to apply
  * @return size of the added characters to the buffer
  */
-size_t string_formatBackgroundMode(void *buffer, color background, uint8_t flags);
+size_t string_formatBackgroundMode(void *buffer, color_t background, uint8_t flags);
 /**
  * @brief  Writes ANSI format characters
  * @param  buffer buffer to write into 
  * @param foreground foreground color of the text
  * @return size of the added characters to the buffer
  */
-size_t string_formatForeground(void *buffer, color foreground);
+size_t string_formatForeground(void *buffer, color_t foreground);
 /**
  * @brief  Writes ANSI format characters
  * @param  buffer buffer to write into 
@@ -39,7 +39,7 @@ size_t string_formatForeground(void *buffer, color foreground);
  * @param  flags flags to apply
  * @return size of the added characters to the buffer
  */
-size_t string_formatForegroundMode(void *buffer, color foreground, uint8_t flags);
+size_t string_formatForegroundMode(void *buffer, color_t foreground, uint8_t flags);
 /**
  * @brief  Writes ANSI format characters
  * @param  buffer buffer to write into 
@@ -47,7 +47,7 @@ size_t string_formatForegroundMode(void *buffer, color foreground, uint8_t flags
  * @param background background color of the text
  * @return size of the added characters to the buffer
  */
-size_t string_formatColor(void *buffer, color foreground, color background);
+size_t string_formatColor(void *buffer, color_t foreground, color_t background);
 /**
  * @brief  Writes ANSI format characters
  * @param  buffer buffer to write into 
@@ -56,7 +56,7 @@ size_t string_formatColor(void *buffer, color foreground, color background);
  * @param  flags flags to apply
  * @return size of the added characters to the buffer
  */
-size_t string_formatColorMode(void *buffer, color foreground, color background, uint8_t flags);
+size_t string_formatColorMode(void *buffer, color_t foreground, color_t background, uint8_t flags);
 /**
  * @brief  Saves the position of the cursor, to be restored later
  * @param  buffer buffer to write into 

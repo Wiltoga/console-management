@@ -16,7 +16,7 @@ void console_formatMode(char *content, uint8_t flags, ...);
  * @param background background color of the text
  * @return void
  */
-void console_formatBackground(char *content, color background, ...);
+void console_formatBackground(char *content, color_t background, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
@@ -24,14 +24,14 @@ void console_formatBackground(char *content, color background, ...);
  * @param  flags flags to apply
  * @return void
  */
-void console_formatBackgroundMode(char *content, color background, uint8_t flags, ...);
+void console_formatBackgroundMode(char *content, color_t background, uint8_t flags, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
  * @param foreground foreground color of the text
  * @return void
  */
-void console_formatForeground(char *content, color foreground, ...);
+void console_formatForeground(char *content, color_t foreground, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
@@ -39,7 +39,7 @@ void console_formatForeground(char *content, color foreground, ...);
  * @param  flags flags to apply
  * @return void
  */
-void console_formatForegroundMode(char *content, color foreground, uint8_t flags, ...);
+void console_formatForegroundMode(char *content, color_t foreground, uint8_t flags, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
@@ -47,7 +47,7 @@ void console_formatForegroundMode(char *content, color foreground, uint8_t flags
  * @param background background color of the text
  * @return void
  */
-void console_formatColor(char *content, color foreground, color background, ...);
+void console_formatColor(char *content, color_t foreground, color_t background, ...);
 /**
  * @brief  Writes formatted text in the console
  * @param  content string to write in the console 
@@ -56,7 +56,7 @@ void console_formatColor(char *content, color foreground, color background, ...)
  * @param  flags flags to apply
  * @return void
  */
-void console_formatColorMode(char *content, color foreground, color background, uint8_t flags, ...);
+void console_formatColorMode(char *content, color_t foreground, color_t background, uint8_t flags, ...);
 /**
  * @brief  Saves the position of the cursor, to be restored later
  * @return void
