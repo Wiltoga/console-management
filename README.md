@@ -18,17 +18,17 @@ The following code should output the next gif (sorry for the bad quality) :
         printf("\n");
         console_formatMode("hello world!", CONSOLE_FLAG_BOLD | CONSOLE_FLAG_UNDERLINE);
         printf("\n");
-        console_formatSystemForeground("hello world!", CONSOLE_COLOR_BRIGHT_BLUE);
+        console_formatForeground("hello world!", SYSTEM_COLOR_BRIGHT_BLUE);
         printf("\n");
-        console_formatSystemColor("hello world!", CONSOLE_COLOR_BLUE, CONSOLE_COLOR_RED);
+        console_formatColor("hello world!", SYSTEM_COLOR_BLUE, SYSTEM_COLOR_RED);
         printf("\n");
-        console_formatSystemColorMode("hello world!", CONSOLE_COLOR_BLUE, CONSOLE_COLOR_RED, CONSOLE_FLAG_UNDERLINE);
+        console_formatColorMode("hello world!", SYSTEM_COLOR_BLUE, SYSTEM_COLOR_RED, CONSOLE_FLAG_UNDERLINE);
         printf("\n");
-        console_formatRGBBackground("hello world!", console_color(220, 50, 160));
+        console_formatBackground("hello world!", color_create(220, 50, 160));
         printf("\n");
-        console_formatRGBColorMode("hello world!",
-                                console_color(50, 150, 220),                                    //foreground
-                                console_color(20, 20, 40),                                      //background
+        console_formatColorMode("hello world!",
+                                color_create(50, 150, 220),                                    //foreground
+                                color_create(20, 20, 40),                                      //background
                                 CONSOLE_FLAG_BLINK | CONSOLE_FLAG_BOLD | CONSOLE_FLAG_UNDERLINE //flags
         );
         printf("\n");
