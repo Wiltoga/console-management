@@ -2,7 +2,6 @@
 #define DEF_STRING_TABLE_H
 #include <stdlib.h>
 #include <stdint.h>
-#include "color.h"
 
 #define TABLE_LINES_BASIC 0
 #define TABLE_LINES_SINGLE 1
