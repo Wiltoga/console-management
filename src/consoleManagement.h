@@ -1,5 +1,5 @@
-#ifndef DEF_CONSOLE_COLORS_H
-#define DEF_CONSOLE_COLORS_H
+#ifndef DEF_CONSOLE_MANAGEMENT_H
+#define DEF_CONSOLE_MANAGEMENT_H
 #include <stdint.h>
 #include "color.h"
 
