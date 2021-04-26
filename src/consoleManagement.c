@@ -111,20 +111,44 @@ void console_formatBackgroundMode(char *content, color_t background, uint8_t fla
 {
     va_list args;
     va_start(args, flags);
-    char str[50];
     if (isColorCustom(background))
-        snprintf(str, 50, "48;2;%d;%d;%d", color_getRed(background), color_getGreen(background), color_getBlue(background));
+        printf("\x1b[48;2;%d;%d;%dm", color_getRed(background), color_getGreen(background), color_getBlue(background));
     else
-        snprintf(str, 50, "%d", background + 10);
-
+        printf("\x1b[%dm", background + 10);
+    char str[50] = "";
+    bool firstAdded = false;
     if (flags & CONSOLE_FLAG_BOLD)
-        strcat(str, ";1");
+    {
+        strcat(str, "1");
+        firstAdded = true;
+    }
     if (flags & CONSOLE_FLAG_UNDERLINE)
-        strcat(str, ";4");
+    {
+        if (firstAdded)
+            strcat(str, ";4");
+        else
+        {
+            strcat(str, "4");
+            firstAdded = true;
+        }
+    }
     if (flags & CONSOLE_FLAG_BLINK)
-        strcat(str, ";5");
+    {
+        if (firstAdded)
+            strcat(str, ";5");
+        else
+        {
+            strcat(str, "5");
+            firstAdded = true;
+        }
+    }
     if (flags & CONSOLE_FLAG_REVERSE_COLOR)
-        strcat(str, ";7");
+    {
+        if (firstAdded)
+            strcat(str, ";7");
+        else
+            strcat(str, "7");
+    }
     printf("\x1b[%sm", str);
     vprintf(content, args);
     printf("\x1b[0m");
@@ -146,19 +170,44 @@ void console_formatForegroundMode(char *content, color_t foreground, uint8_t fla
 {
     va_list args;
     va_start(args, flags);
-    char str[50];
     if (isColorCustom(foreground))
-        snprintf(str, 50, "38;2;%d;%d;%d", color_getRed(foreground), color_getGreen(foreground), color_getBlue(foreground));
+        printf("\x1b[38;2;%d;%d;%dm", color_getRed(foreground), color_getGreen(foreground), color_getBlue(foreground));
     else
-        snprintf(str, 50, "%d", foreground);
+        printf("\x1b[%dm", foreground);
+    char str[50] = "";
+    bool firstAdded = false;
     if (flags & CONSOLE_FLAG_BOLD)
-        strcat(str, ";1");
+    {
+        strcat(str, "1");
+        firstAdded = true;
+    }
     if (flags & CONSOLE_FLAG_UNDERLINE)
-        strcat(str, ";4");
+    {
+        if (firstAdded)
+            strcat(str, ";4");
+        else
+        {
+            strcat(str, "4");
+            firstAdded = true;
+        }
+    }
     if (flags & CONSOLE_FLAG_BLINK)
-        strcat(str, ";5");
+    {
+        if (firstAdded)
+            strcat(str, ";5");
+        else
+        {
+            strcat(str, "5");
+            firstAdded = true;
+        }
+    }
     if (flags & CONSOLE_FLAG_REVERSE_COLOR)
-        strcat(str, ";7");
+    {
+        if (firstAdded)
+            strcat(str, ";7");
+        else
+            strcat(str, "7");
+    }
     printf("\x1b[%sm", str);
     vprintf(content, args);
     printf("\x1b[0m");
@@ -168,14 +217,14 @@ void console_formatColor(char *content, color_t foreground, color_t background, 
 {
     va_list args;
     va_start(args, background);
-    if (isColorCustom(foreground))
-        printf("\x1b[38;2;%d;%d;%d", color_getRed(foreground), color_getGreen(foreground), color_getBlue(foreground));
-    else
-        printf("\x1b[%d", foreground);
     if (isColorCustom(background))
-        printf(";48;2;%d;%d;%dm", color_getRed(background), color_getGreen(background), color_getBlue(background));
+        printf("\x1b[48;2;%d;%d;%dm", color_getRed(background), color_getGreen(background), color_getBlue(background));
     else
-        printf(";%dm", background + 10);
+        printf("\x1b[%dm", background + 10);
+    if (isColorCustom(foreground))
+        printf("\x1b[38;2;%d;%d;%dm", color_getRed(foreground), color_getGreen(foreground), color_getBlue(foreground));
+    else
+        printf("\x1b[%dm", foreground);
     vprintf(content, args);
     printf("\x1b[0m");
     va_end(args);
@@ -184,23 +233,48 @@ void console_formatColorMode(char *content, color_t foreground, color_t backgrou
 {
     va_list args;
     va_start(args, flags);
-    char str[50];
-    if (isColorCustom(foreground))
-        snprintf(str, 50, "38;2;%d;%d;%d", color_getRed(foreground), color_getGreen(foreground), color_getBlue(foreground));
-    else
-        snprintf(str, 50, "%d", foreground);
     if (isColorCustom(background))
-        snprintf(str, 50, ";48;2;%d;%d;%d", color_getRed(background), color_getGreen(background), color_getBlue(background));
+        printf("\x1b[48;2;%d;%d;%dm", color_getRed(background), color_getGreen(background), color_getBlue(background));
     else
-        snprintf(str, 50, ";%d", background + 10);
+        printf("\x1b[%dm", background + 10);
+    if (isColorCustom(foreground))
+        printf("\x1b[38;2;%d;%d;%dm", color_getRed(foreground), color_getGreen(foreground), color_getBlue(foreground));
+    else
+        printf("\x1b[%dm", foreground);
+    char str[50] = "";
+    bool firstAdded = false;
     if (flags & CONSOLE_FLAG_BOLD)
-        strcat(str, ";1");
+    {
+        strcat(str, "1");
+        firstAdded = true;
+    }
     if (flags & CONSOLE_FLAG_UNDERLINE)
-        strcat(str, ";4");
+    {
+        if (firstAdded)
+            strcat(str, ";4");
+        else
+        {
+            strcat(str, "4");
+            firstAdded = true;
+        }
+    }
     if (flags & CONSOLE_FLAG_BLINK)
-        strcat(str, ";5");
+    {
+        if (firstAdded)
+            strcat(str, ";5");
+        else
+        {
+            strcat(str, "5");
+            firstAdded = true;
+        }
+    }
     if (flags & CONSOLE_FLAG_REVERSE_COLOR)
-        strcat(str, ";7");
+    {
+        if (firstAdded)
+            strcat(str, ";7");
+        else
+            strcat(str, "7");
+    }
     printf("\x1b[%sm", str);
     vprintf(content, args);
     printf("\x1b[0m");
