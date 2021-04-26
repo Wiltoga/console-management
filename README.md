@@ -1,5 +1,7 @@
 # Console Management
 
+> `2021/04/27` : Ok, I feel kinda sad that I just learned the existence of ncurses, and now I feel like this repo is totally useless (perhaps the grid stuff could be great, still). I won't update much from now on.
+
 Small file that provides utility functions to format the console. Only works for Linux for now.
 
 ## Features
